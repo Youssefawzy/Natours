@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
 const app = express();
-
+const router = express.Router();
 const DB = process.env.DATABASE.replace(
   "<password>",
   process.env.DATABASE_PASSWORD
@@ -18,9 +18,6 @@ mongoose
     console.log(err);
   });
 
-app.get("/", (req, res) => {
-  res.json({ message: "hello from the server side", app: "Natours" });
-});
 
 const port = process.env.port || 3000;
 
