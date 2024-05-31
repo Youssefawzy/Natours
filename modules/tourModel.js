@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const slugify = require("slugify");
+// const slugify = require("slugify");
 
 const tourSchema = new mongoose.Schema(
   {
@@ -18,7 +18,7 @@ const tourSchema = new mongoose.Schema(
     },
     maxGroupSize: {
       type: Number,
-      required: [ture, "A tour must have a group size"],
+      required: [true, "A tour must have a group size"],
     },
     difficulty: {
       type: String,
@@ -40,7 +40,7 @@ const tourSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
-      requaired: [ture, "A tour must have a price"],
+      requaired: [true, "A tour must have a price"],
     },
     priceDiscount: {
       type: Number,
@@ -51,12 +51,12 @@ const tourSchema = new mongoose.Schema(
     },
     summary: {
       type: String,
-      trim: ture,
-      required: [ture, "A tour must have a description"],
+      trim: true,
+      required: [true, "A tour must have a description"],
     },
     description: {
       type: String,
-      trim: ture,
+      trim: true,
     },
     imageCover: {
       type: String,
@@ -75,8 +75,8 @@ const tourSchema = new mongoose.Schema(
     },
   },
   {
-    toJSONP: { virtuals: ture },
-    toObject: { virtuals: ture },
+    toJSONP: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 
