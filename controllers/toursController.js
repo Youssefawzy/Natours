@@ -28,9 +28,23 @@ exports.getTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      tour,
+      message: err,
     });
   }
 };
 
-
+exports.createTour = async (req, res) => {
+  console.log(req.body);
+  try {
+    const newTour = await Tour.create(req.body);
+    res.status(200).json({
+      status: "success",
+      tour: newTour,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
