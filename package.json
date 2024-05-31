@@ -4,13 +4,17 @@
   "description": "Natours is an modern web application that provides a platform for nature lovers and adventure travelers to buy and sell nature-based adventure tours.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=PRODUCTION nodemon server.js",
+    "debug":"ndb server.js"
   },
   "author": "Youssef Fawzy",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.4.0"
+    "mongoose": "^8.4.0",
+    "morgan": "^1.10.0"
   }
 }

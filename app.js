@@ -1,24 +1,21 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const Tour = require("./modules/tourModel");
-dotenv.config({ path: "./config.env" });
+const morgan = require("morgan");
 
 const app = express();
-const router = express.Router();
-const DB = process.env.DATABASE.replace(
-  "<password>",
-  process.env.DATABASE_PASSWORD
-);
 
-mongoose
-  .connect(DB)
-  .then(() => console.log("DB connection successful!"))
-  .catch((err) => {
-    console.log(err);
-  });
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
+const router = express.Router();
+
+app.use(express.json());
 
 app.get("/", async (req, res, next) => {
+  console.log(process.env.NODE_ENV);
+  console.log(req.body);
   const tours = await Tour.find();
 
   res.status(200).json({
@@ -26,8 +23,4 @@ app.get("/", async (req, res, next) => {
   });
 });
 
-const port = process.env.port || 3000;
-
-app.listen(port, () => {
-  console.log(`Server in running on ${port}`);
-});
+module.exports = app;

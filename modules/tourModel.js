@@ -69,10 +69,10 @@ const tourSchema = new mongoose.Schema(
       select: false,
     },
     startDated: [Date],
-    secretTour: {
-      type: Boolean,
-      default: false,
-    },
+    // secretTour: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
   {
     toJSONP: { virtuals: true },
