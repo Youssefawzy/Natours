@@ -48,3 +48,7 @@ exports.createTour = async (req, res) => {
     });
   }
 };
+
+// exports.updateTour = async(req,res)=>{
+
+// }
