@@ -15,10 +15,10 @@ exports.getAllTours = async (req, res) => {
       length: tours.length,
       tours,
     });
-  } catch (error) {
+  } catch (err) {
     res.status(404).json({
       status: "fail",
-      error: { message: error.message, stack: error.stack },
+      err: { message: err.message, stack: err.stack },
     });
   }
 };
@@ -34,7 +34,7 @@ exports.getTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      message: err,
+      err: { message: err.message, stack: err.stack },
     });
   }
 };
@@ -50,7 +50,7 @@ exports.createTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      message: err,
+      err: { message: err.message, stack: err.stack },
     });
   }
 };
@@ -69,7 +69,7 @@ exports.updateTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      message: err,
+      err: { message: err.message, stack: err.stack },
     });
   }
 };
@@ -85,7 +85,7 @@ exports.deleteTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: "fail",
-      message: err,
+      err: { message: err.message, stack: err.stack },
     });
   }
 };
