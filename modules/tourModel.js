@@ -68,7 +68,7 @@ const tourSchema = new mongoose.Schema(
       default: Date.now(),
       select: true,
     },
-    startDated: [Date],
+    startDates: [Date],
     // secretTour: {
     //   type: Boolean,
     //   default: false,
