@@ -75,7 +75,7 @@ const tourSchema = new mongoose.Schema(
     // },
   },
   {
-    toJSONP: { virtuals: true },
+    toJSON: { virtuals: true },
     toObject: { virtuals: true },
   }
 );
