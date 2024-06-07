@@ -30,9 +30,13 @@ const sendErrorProd = (err, res) => {
   }
 };
 
-module.exports = (err, req, res, next) => {
-  console.log(process.env.NODE_ENV);
+const handleCastErrorDB = (err) => {
+  const message = `Invalid ${err.path}: ${err.value}.`;
+  return new AppError(message, 400);
+};
 
+
+const handleValidationErrorDB = (err) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
 
