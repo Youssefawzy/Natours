@@ -45,6 +45,12 @@ exports.updateTour = catchAsync(async (req, res) => {
     new: true,
     runValidatours: true,
   });
+  console.log(updatedTour);
+
+  res.status(204).json({
+    status: "success",
+    tour: updatedTour,
+  });
 });
 
 exports.deleteTour = catchAsync(async (req, res) => {
@@ -122,4 +128,9 @@ exports.getMonthlyPlan = catchAsync(async (req, res) => {
     { $sort: { numTourStarts: -1 } },
     { $limit: 12 },
   ]);
+
+  res.status(200).json({
+    status: "success",
+    plan,
+  });
 });
