@@ -3,6 +3,10 @@ const router = express.Router();
 const authController = require("./../controllers/authController");
 const userController = require("./../controllers/userController");
 
+router
+  .route("/deleteMe")
+  .delete(authController.protect, userController.deleteMe);
+
 router.route("/").get(userController.getAllUsers);
 router
   .route("/:id")
