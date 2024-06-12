@@ -30,6 +30,7 @@ exports.getUser = catchAsync(async (req, res) => {
   });
 });
 
+exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
 
 exports.updateME = catchAsync(async (req, res, next) => {
