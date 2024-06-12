@@ -1,4 +1,3 @@
-// review / rating / createdAt / ref to tour / ref to user
 const mongoose = require("mongoose");
 const Tour = require("./tourModel");
 
@@ -34,5 +33,7 @@ const reviewSchema = new mongoose.Schema(
     id: false,
   }
 );
+
+const Review = mongoose.model("Review", reviewSchema);
 
 module.exports = Review;
