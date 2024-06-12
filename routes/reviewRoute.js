@@ -9,7 +9,8 @@ router
   .post(
     authController.protect,
     authController.restricTo("user"),
-    reviewController.getAllReviews
+    reviewController.setTourUserIds,
+    reviewController.CreateReview
   );
 
 router

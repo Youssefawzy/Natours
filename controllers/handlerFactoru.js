@@ -24,6 +24,15 @@ exports.updateOne = (Model) =>
 
     res.status(200).json({
       status: "success",
-      tour: updatedDoc,
+      data: updatedDoc,
+    });
+  });
+
+exports.createOne = (Model) =>
+  catchAsync(async (req, res) => {
+    const newDoc = await Model.create(req.body);
+    res.status(200).json({
+      status: "success",
+      data: newDoc,
     });
   });
