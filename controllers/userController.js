@@ -11,25 +11,8 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
-exports.getAllUsers = catchAsync(async (req, res) => {
-  const users = await User.find();
-
-  res.status(200).json({
-    status: "success",
-    length: users.length,
-    users,
-  });
-});
-
-exports.getUser = catchAsync(async (req, res) => {
-  const user = await User.findById(req.params.id);
-
-  res.status(200).json({
-    status: "success",
-    user,
-  });
-});
-
+exports.getAllUsers = factory.getAll(User);
+exports.getUser = factory.getOne(User);
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
 

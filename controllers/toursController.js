@@ -10,29 +10,8 @@ exports.aliasTopTours = (req, res, next) => {
   next();
 };
 
-exports.getAllTours = catchAsync(async (req, res) => {
-  let features = new APIFeatures(Tour.find(), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
-
-  const tours = await features.query;
-  res.status(200).json({
-    status: "success",
-    length: tours.length,
-    tours,
-  });
-});
-
-exports.getTour = catchAsync(async (req, res) => {
-  const tour = await Tour.findById(req.params.id).populate("reviews");
-  res.status(200).json({
-    status: "success",
-    tour,
-  });
-});
-
+exports.getAllTours = factory.getAll(Tour);
+exports.getTour = factory.getOne(Tour, { path: "reviews" });
 exports.createTour = factory.createOne(Tour);
 exports.updateTour = factory.updateOne(Tour);
 exports.deleteTour = factory.deleteOne(Tour);
