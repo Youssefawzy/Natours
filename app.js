@@ -2,6 +2,8 @@ const express = require("express");
 const tourRouter = require("./routes/tourRoute");
 const userRouter = require("./routes/userRoute");
 const reviewRouter = require("./routes/reviewRoute");
+const viewRouter = require("./routes/viewRoute");
+const path = require("path");
 const morgan = require("morgan");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController.js");
@@ -12,6 +14,10 @@ const xss = require("xss-clean");
 const hpp = require("hpp");
 
 const app = express();
+
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -43,6 +49,7 @@ app.use(
 
 app.use(express.json());
 
+app.use('/', viewRouter);
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRouter);
