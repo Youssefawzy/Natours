@@ -15,6 +15,9 @@ router.route("/tours-stats").get(tourController.getTourStats);
 router.route("/monthly-plan/:year").get(tourController.getMonthlyPlan);
 
 router
+  .route("/tours-within/:distance/center/:latlng/unit/:unit")
+  .get(tourController.getToursWithin);
+router
   .route("/")
   .get(authController.protect, tourController.getAllTours)
   .post(tourController.createTour);
@@ -28,7 +31,5 @@ router
     authController.restricTo(["admin", "lead-guide"]),
     tourController.deleteTour
   );
-
-
 
 module.exports = router;
