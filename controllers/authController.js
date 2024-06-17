@@ -1,4 +1,4 @@
-const User = require("./../modules/userModel");
+const User = require("./../models/userModel");
 const { promisify } = require("util");
 const catchAsync = require("./../utils/catchAsync");
 const AppError = require("./../utils/appError");

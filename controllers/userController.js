@@ -1,5 +1,5 @@
 const AppError = require("../utils/appError");
-const User = require("./../modules/userModel");
+const User = require("./../models/userModel");
 const catchAsync = require("./../utils/catchAsync");
 const factory = require("./../controllers/handlerFactoru");
 
