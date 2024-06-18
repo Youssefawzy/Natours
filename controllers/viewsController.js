@@ -21,6 +21,12 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAccount = (req, res) => {
+  res.status(200).render("account", {
+    title: "Your account",
+  });
+};
+
 exports.getTour = catchAsync(async (req, res, next) => {
   const tour = await Tour.findOne({ slug: req.params.slug }).populate({
     path: "reviews",
