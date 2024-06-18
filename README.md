@@ -156,14 +156,11 @@ Get Tours Within Radius 👉🏻 https://lgope-natours.onrender.com/api/v1/tours
     * JWT_EXPIRES_IN=90d
     * JWT_COOKIE_EXPIRES_IN=90
 
-    * EMAIL_USERNAME=your mailtrap username
+    * EMAIL_USERNAME=your mailtrap usernam
     * EMAIL_PASSWORD=your mailtrap password
     * EMAIL_HOST=smtp.mailtrap.io
     * EMAIL_PORT=2525
     * EMAIL_FROM=your real-life email address
-
-    * SENDGRID_USERNAME=apikey
-    * SENDGRID_PASSWORD=your sendgrid password
 
     * STRIPE_SECRET_KEY=your stripe secret key
     * STRIPE_WEBHOOK_SECRET=your stripe webhook secret
